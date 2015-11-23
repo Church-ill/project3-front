@@ -28,6 +28,74 @@
 
 <body>
 
+    <!--REGISTER or LOGIN-->
+    <div id="login-overlay" class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Login to <b>Book Swap</b></h4> or <a id="skipLogIn" href="">skip this step</a>
+        </div>
+
+        <div class="modal-body">
+            <div class="row">
+
+              <!--LEFT COLUMN-->
+              <div class="col-xs-6">
+                <div class="well">
+
+                  <form id="loginForm">
+
+                    <div class="form-group">
+                      <label for="email" class="control-label">email</label>
+                      <input type="text" name="email" class="form-control" placeholder="email">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="password" class="control-label">Password</label>
+                      <input type="password" name="password" class="form-control" placeholder="password">
+                    </div>
+
+                    <div id="LoginMessage"></div>
+                    <button type="submit" class="btn btn-success btn-block">Login</button>
+
+                  </form>
+                </div>
+              </div>
+
+                <!--RIGHT COLUMN-->
+              <div class="col-xs-6">
+                <div class="well">
+                  <form id="registerForm">
+
+                    <div class="form-group">
+                      <label for="email" class="control-label">email</label>
+                      <input type="text" name="email" class="form-control" placeholder="email">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="password" class="control-label">Password</label>
+                      <input type="password" name="password" class="form-control" placeholder="password">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="password" class="control-label">Password Confirm</label>
+                      <input type="password" name="password_confirmation" class="form-control" placeholder="password">
+                    </div>
+                    <div id="RegisterMessage"></div>
+                    <button type="submit" class="btn btn-info btn-block">Register</button>
+
+                    </form>
+                </div>
+              </div>
+
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+
+<!--After Registration & Login, this will show-->
+
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
