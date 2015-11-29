@@ -25,14 +25,15 @@ $(document).ready(function(){
 
   $('#registerForm').on('submit', function(e) {
     var credentials = form2object(this);
-    api.register(credentials, login.registerCB);
+    console.log(credentials);
+    api.register(credentials, cb.registerCB);
     $(".form-control").val('');
     e.preventDefault();
   });
 
   $('#loginForm').on('submit', function(e){
     var credentials = form2object(this);
-    api.login(credentials, login.loginCB);
+    api.login(credentials, cb.loginCB);
     $(".form-control").val('');
     e.preventDefault();
   });
