@@ -37,4 +37,10 @@ $(document).ready(function(){
     $(".form-control").val('');
     e.preventDefault();
   });
+
+  $('#skipLogIn').on('click', function(e){
+    ux.skipLogin();
+    e.preventDefault();
+  });
+
 });

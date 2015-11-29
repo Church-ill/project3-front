@@ -14,6 +14,7 @@ var cb = {
     } else {
       console.log("successF");
       console.log(data);
+      ux.afterLogin();
     }
   }
 
