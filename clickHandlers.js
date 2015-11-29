@@ -1,1 +1,37 @@
 'use strict';
+
+var form2object = function(form) {
+  var data = {};
+   $(form).find("input").each(function(index, element) {
+      var type = $(this).attr('type');
+      if ($(this).attr('name') && type !== 'submit' && type !== 'hidden') {
+       data[$(this).attr('name')] = $(this).val();
+      }
+   });
+  return data;
+};
+
+var wrap = function(root, formData) {
+  var wrapper = {};
+  wrapper[root] = formData;
+  return wrapper;
+};
+
+$(document).ready(function(){
+
+  //Login Actions//
+
+  $('#registerForm').on('submit', function(e) {
+    var credentials = wrap('credentials', form2object(this));
+    api.register(credentials, login.registerCB);
+    $(".form-control").val('');
+    e.preventDefault();
+  });
+
+  $('#loginForm').on('submit', function(e){
+    var credentials = wrap('credentials', form2object(this));
+    api.login(credentials, login.loginCB);
+    $(".form-control").val('');
+    e.preventDefault();
+  });
+});
