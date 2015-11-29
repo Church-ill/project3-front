@@ -19,17 +19,19 @@ var wrap = function(root, formData) {
 
 $(document).ready(function(){
 
+  ux.login();
+
   //Login Actions//
 
   $('#registerForm').on('submit', function(e) {
-    var credentials = wrap('credentials', form2object(this));
+    var credentials = form2object(this);
     api.register(credentials, login.registerCB);
     $(".form-control").val('');
     e.preventDefault();
   });
 
   $('#loginForm').on('submit', function(e){
-    var credentials = wrap('credentials', form2object(this));
+    var credentials = form2object(this);
     api.login(credentials, login.loginCB);
     $(".form-control").val('');
     e.preventDefault();
