@@ -17,8 +17,8 @@ var api = {
       method: 'POST',
       url: this.url + '/signup',
       contentType: 'application/json',
-      data: JSON.stringify(credentials),
-      dataType: 'json'
+      data: JSON.stringify(credentials)
+      //dataType: 'json'
     }, callback);
   },
 
@@ -27,8 +27,8 @@ var api = {
       method: 'POST',
       url: this.url + '/login',
       contentType: 'application/json',
-      data: JSON.stringify(credentials),
-      dataType: 'json'
+      data: JSON.stringify(credentials)
+      //dataType: 'json'
     }, callback);
   }
 

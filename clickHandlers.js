@@ -25,7 +25,6 @@ $(document).ready(function(){
 
   $('#registerForm').on('submit', function(e) {
     var credentials = form2object(this);
-    console.log(credentials);
     api.register(credentials, cb.registerCB);
     $(".form-control").val('');
     e.preventDefault();
@@ -33,6 +32,7 @@ $(document).ready(function(){
 
   $('#loginForm').on('submit', function(e){
     var credentials = form2object(this);
+    console.log("creds:", credentials);
     api.login(credentials, cb.loginCB);
     $(".form-control").val('');
     e.preventDefault();
