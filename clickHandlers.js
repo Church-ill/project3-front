@@ -40,7 +40,7 @@ $(document).ready(function(){
 
   $('#skipLogIn').on('click', function(e){
     ux.skipLogin();
-    api.showProduct(cb.allProdsCB);
+    api.indexProducts(cb.allProdsCB);
     e.preventDefault();
   });
 
