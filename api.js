@@ -12,6 +12,7 @@ var api = {
     });
   },
 
+  // Unauthenticated actions
   register: function(credentials, callback) {
     this.ajax({
       method: 'POST',
@@ -28,6 +29,52 @@ var api = {
       url: this.url + '/login',
       contentType: 'application/json',
       data: JSON.stringify(credentials)
+      //dataType: 'json'
+    }, callback);
+  },
+
+  indexProducts: function(callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.url + '/products',
+      contentType: 'application/json'
+      //dataType: 'json'
+    }, callback);
+  },
+
+  showProduct: function(id, callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.url + '/products/' + id,
+      contentType: 'application/json'
+      //dataType: 'json'
+    }, callback);
+  },
+
+  showTransaction: function(query, callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.url + '/transactions/' + query,
+      contentType: 'application/json'
+      //dataType: 'json'
+    }, callback);
+  },
+
+  createTransaction: function(data, callback) {
+    this.ajax({
+      method: 'POST',
+      url: this.url + '/transactions',
+      contentType: 'application/json'
+      //dataType: 'json'
+    }, callback);
+  },
+
+  updateTransaction: function(id, data, callback) {
+    this.ajax({
+      method: 'PATCH',
+      url: this.url + '/transactions/' + id,
+      contentType: 'application/json',
+      data: data
       //dataType: 'json'
     }, callback);
   }

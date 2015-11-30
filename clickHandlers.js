@@ -20,7 +20,7 @@ var wrap = function(root, formData) {
 $(document).ready(function(){
 
   ux.login();
-
+  cb.init();
   //Login Actions//
 
   $('#registerForm').on('submit', function(e) {
@@ -40,7 +40,13 @@ $(document).ready(function(){
 
   $('#skipLogIn').on('click', function(e){
     ux.skipLogin();
+    api.showProduct(cb.allProdsCB);
     e.preventDefault();
   });
+
+  // $('').on('click', function(e) {
+  //   api.showProduct(cb.allProdsCB);
+  //   e.preventDefault();
+  // });
 
 });
