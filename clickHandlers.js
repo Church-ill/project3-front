@@ -17,6 +17,34 @@ var wrap = function(root, formData) {
   return wrapper;
 };
 
+// (function($) {
+//   $.fn.flash_message = function flash_message(options) {
+
+//     options = $.extend({
+//       text: 'Done',
+//       time: 1000,
+//       how: 'before',
+//       class_name: ''
+//     }, options);
+
+//     return $(this).each(function() {
+//       if( $(this).parent().find('.flash_message').get(0) )
+//         return;
+
+//       var message = $('<span />', {
+//         'class': 'flash_message ' + options.class_name,
+//         text: options.text
+//       }).hide().fadeIn('fast');
+
+//       $(this)[options.how](message);
+
+//       message.delay(options.time).fadeOut('normal', function() {
+//         $(this).remove();
+//       })(jQuery);
+//     });
+//   };
+// });
+
 $(document).ready(function(){
 
   ux.login();
@@ -36,10 +64,7 @@ $(document).ready(function(){
     api.login(credentials, cb.loginCB);
     $(".form-control").val('');
     e.preventDefault();
-    $('#status-area').flash_message({
-        text: 'Hello!',
-        how: 'append'
-        });
+    $('.loginMessage').show();
   });
 
   $('#logoutButton').on('click', function (e) {
@@ -72,33 +97,7 @@ $(document).ready(function(){
     e.preventDefault();
   });
 
-  $('function') {
-    $.fn.flash_message = function(options) {
 
-      options = $.extend({
-        text: 'Done',
-        time: 1000,
-        how: 'before',
-        class_name: ''
-      }, options);
-
-      return $(this).each(function() {
-        if( $(this).parent().find('.flash_message').get(0) )
-          return;
-
-        var message = $('<span />', {
-          'class': 'flash_message ' + options.class_name,
-          text: options.text
-        }).hide().fadeIn('fast');
-
-        $(this)[options.how](message);
-
-        message.delay(options.time).fadeOut('normal', function() {
-          $(this).remove();
-        })(jQuery);
-      });
-    };
-  });
   // $('').on('click', function(e) {
   //   api.showProduct(cb.allProdsCB);
   //   e.preventDefault();
