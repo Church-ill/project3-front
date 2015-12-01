@@ -334,14 +334,14 @@
 
           <tbody id='prods-shop-cart'>
             <script id="cart-index" type="text/x-handlebars-template">
-              {{#each products}}
+              {{#each transactions}}
               <tr>
                 <td><button data-prod-id={{_id}} type="button" class="btn btn-warning">Remove</button>
                 </td>
-                <td>{{name}}</td>
-                <td>{{desc}}</td>
+                <td>{{product_name}}</td>
+                <td>{{product_desc}}</td>
                 <td>{{qty}}</td>
-                <td>{{price}}</td>
+                <td>{{product_price}}</td>
               </tr>
               {{/each}}
             </script>

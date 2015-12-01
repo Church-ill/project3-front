@@ -2,6 +2,7 @@ var cb = {
 
   //Handlebars to generate tables//
   allProdsTemplate: function(){},
+  cartTemplate: function(){},
 
   init: function(){
     Handlebars.registerHelper('ifOnLoan', function (conditionalVariable, options){
@@ -13,6 +14,7 @@ var cb = {
     });
 
     this.allProdsTemplate = Handlebars.compile($('#allProd-index').html());
+    this.cartTemplate = Handlebars.compile($('#cart-index').html());
   },
   // ^ end Handlebars ^ //
 
@@ -69,6 +71,8 @@ var cb = {
       console.error(err);
     } else {
       console.log(data);
+      var rowHTML = cb.cartTemplate({transactions: data});
+      $("#prods-shop-cart").html(rowHTML);
     }
   }
 
