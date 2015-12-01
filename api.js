@@ -1,23 +1,21 @@
 'use strict';
 
-$.ajaxSetup({
-  xhrFields: {
-    withCredentials: true
-  }
-});
-
-
 var api = {
 
   url: 'http://localhost:3000',
 
   ajax: function(config, cb) {
-  $.ajax(config).done(function(data, textStatus, jqxhr) {
-      cb(null, data);
-    }).fail(function(jqxhr, status, error) {
-      cb({jqxher: jqxhr, status: status, error: error});
+    $.ajaxSetup({
+      xhrFields: {
+        withCredentials: true
+      }
     });
-  },
+    $.ajax(config).done(function(data, textStatus, jqxhr) {
+        cb(null, data);
+      }).fail(function(jqxhr, status, error) {
+        cb({jqxher: jqxhr, status: status, error: error});
+      });
+    },
 
   // Unauthenticated actions
   register: function(credentials, callback) {
@@ -44,10 +42,7 @@ var api = {
     this.ajax({
       method: 'POST',
       url: this.url + '/logout',
-      xhrFields: {
-                  withCredentials: true
-                  }
-      // contentType: 'application/json'
+      contentType: 'application/json'
       //dataType: 'json'
     }, callback);
   },
