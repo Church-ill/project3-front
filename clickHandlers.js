@@ -64,7 +64,15 @@ $(document).ready(function(){
 
   $('#add-to-cart').on('click', function(e){
     ux.cartPage();
-    //api.showTransaction();
+    var data = {
+      //user_id: "565b262200c6ec466aec2900",
+      product_id: $(e.target).data('cart-prod-id'),
+      status: "cart",
+      qty: 1
+    };
+    console.log('createTrans data before api:');
+    console.log(data);
+    api.createTransaction(data, cb.createTransCB);
     e.preventDefault();
   });
 

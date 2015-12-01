@@ -78,7 +78,8 @@ var api = {
     this.ajax({
       method: 'POST',
       url: this.url + '/transactions',
-      contentType: 'application/json'
+      contentType: 'application/json',
+      data: JSON.stringify(data)
       //dataType: 'json'
     }, callback);
   },

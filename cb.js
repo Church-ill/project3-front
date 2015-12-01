@@ -62,6 +62,14 @@ var cb = {
       $('#prodDesc').text(data[0].desc);
       $('#add-to-cart').attr('data-cart-prod-id',data[0]["_id"]);
     }
+  },
+
+  createTransCB: function(err, data) {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(data);
+    }
   }
 
 };
