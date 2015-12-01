@@ -3,6 +3,7 @@
 var ux = {
 
   login: function(){
+    $('#login-overlay').show();
     $('#main-product-page').hide();
     $('#single-product-page').hide();
     $('#shop-cart').hide(500);

@@ -49,6 +49,11 @@ $(document).ready(function(){
 
   ux.login();
   cb.init();
+
+  $('#nozama').on('click', function() {
+    ux.login();
+  });
+
   //Login Actions//
 
   $('#registerForm').on('submit', function(e) {
@@ -67,15 +72,21 @@ $(document).ready(function(){
     $('.loginMessage').show();
   });
 
+  $('#skipLogIn').on('click', function(e){
+    ux.skipLogin();
+    api.indexProducts(cb.allProdsCB);
+    e.preventDefault();
+  });
+
+  //NavBar//
+
   $('#logoutButton').on('click', function (e) {
     api.logout(cb.logoutCB);
     e.preventDefault();
   });
 
-  $('#skipLogIn').on('click', function(e){
-    ux.skipLogin();
-    api.indexProducts(cb.allProdsCB);
-    e.preventDefault();
+  $('#cartButton').on('click', function (e) {
+    ux.cartPage();
   });
 
   //Product Pages//
@@ -105,6 +116,11 @@ $(document).ready(function(){
     e.preventDefault();
   });
 
+  //Shopping Cart Page//
+
+  $('#contShopButton').on('click', function () {
+    ux.afterLogin();
+  });
 
   // $('').on('click', function(e) {
   //   api.showProduct(cb.allProdsCB);
