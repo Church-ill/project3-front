@@ -57,7 +57,10 @@ var cb = {
     if (err) {
       console.error(err);
     } else {
-      console.log(data);
+      $('#prodName').text(data[0].name);
+      $('#prodPrice').text("$" + data[0].price);
+      $('#prodDesc').text(data[0].desc);
+      $('#add-to-cart').attr('data-cart-prod-id',data[0]["_id"]);
     }
   }
 
