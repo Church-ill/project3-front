@@ -353,7 +353,16 @@
         <div class="text-right">
             <p id="cartTotal">Total:</p>
             <span id="contShopButton" class="btn btn-success">Continue Shopping</span>
-            <a class="btn btn-warning">Checkout</a>
+            <form action="/charge" method="POST">
+              <script
+                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="pk_test_ijxlnniMWqq8lhA45ysnRzC1"
+                data-name="Nozama"
+                data-description="2 widgets"
+                data-amount="2000"
+                data-locale="auto">
+              </script>
+            </form>
         </div>
       </div>
 
