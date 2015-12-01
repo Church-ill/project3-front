@@ -67,12 +67,18 @@ var cb = {
   },
 
   createTransCB: function(err, data) {
+    var total = 0;
+
     if (err) {
       console.error(err);
     } else {
       console.log(data);
       var rowHTML = cb.cartTemplate({transactions: data.trans});
       $("#prods-shop-cart").html(rowHTML);
+      data.trans.forEach( function (elem) {
+        total += elem.product_price;
+      });
+      $('#cartTotal').text("Total: " + total);
     }
   }
 
