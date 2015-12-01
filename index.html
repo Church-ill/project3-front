@@ -22,6 +22,7 @@
     <script src="ux.js"></script>
     <script src="cb.js"></script>
     <script src="clickHandlers.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
 </head>
 
@@ -53,7 +54,6 @@
                       <input type="password" name="password" class="form-control" placeholder="password">
                     </div>
 
-                    <div id="LoginMessage"></div>
                     <button type="submit" class="btn btn-success btn-block">Login</button>
 
                   </form>
@@ -134,6 +134,9 @@
                     </li>
                     <li>
                         <a id="logoutButton" href="#logout">Logout</a>
+                    </li>
+                    <li>
+                        <div class="loginMessage" hidden>Hello + 'user'</div>
                     </li>
                 </ul>
             </div>
