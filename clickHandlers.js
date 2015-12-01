@@ -38,11 +38,18 @@ $(document).ready(function(){
     e.preventDefault();
   });
 
+  $('#logoutButton').on('click', function (e) {
+    api.logout(cb.logoutCB);
+    e.preventDefault();
+  });
+
   $('#skipLogIn').on('click', function(e){
     ux.skipLogin();
     api.indexProducts(cb.allProdsCB);
     e.preventDefault();
   });
+
+  //Product Pages//
 
   $('#allProdsPage').on('click', function(e){
     var prodClicked = $(e.target);

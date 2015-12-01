@@ -34,6 +34,14 @@ var cb = {
     }
   },
 
+  logoutCB: function(err, data) {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log("success:", data);
+    }
+  },
+
   allProdsCB: function(err, data) {
     if (err) {
       console.error(err);
