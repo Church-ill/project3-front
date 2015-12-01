@@ -44,6 +44,17 @@ $(document).ready(function(){
     e.preventDefault();
   });
 
+  $('#allProdsPage').on('click', function(e){
+    var prodClicked = $(e.target);
+    var id = prodClicked.data('prods-id');
+    console.log("you clicked product id:" + id);
+    if (id) {
+      ux.singleProductPage();
+      api.showProduct(id, cb.showProdsCB);
+    };
+    e.preventDefault();
+  });
+
   // $('').on('click', function(e) {
   //   api.showProduct(cb.allProdsCB);
   //   e.preventDefault();
