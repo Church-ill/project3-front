@@ -71,7 +71,7 @@ var cb = {
       console.error(err);
     } else {
       console.log(data);
-      var rowHTML = cb.cartTemplate({transactions: data});
+      var rowHTML = cb.cartTemplate({transactions: data.trans});
       $("#prods-shop-cart").html(rowHTML);
     }
   }
