@@ -15,11 +15,14 @@ var ux = {
     $('#shop-cart').hide(500);
   },
 
-  afterLogin: function(){
+  afterLogin: function(user){
     $('#login-overlay').hide();
     $('#main-product-page').show(500);
     $('#single-product-page').hide();
     $('#shop-cart').hide(500);
+    $('.loginMessage').show(500);
+    console.log(user);
+    console.log("Got user");
   },
 
   singleProductPage: function(){

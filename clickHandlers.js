@@ -64,7 +64,6 @@ $(document).ready(function(){
     api.login(credentials, cb.loginCB);
     $(".form-control").val('');
     e.preventDefault();
-    $('.loginMessage').show();
   });
 
   $('#logoutButton').on('click', function (e) {

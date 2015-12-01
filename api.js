@@ -40,6 +40,18 @@ var api = {
     }, callback);
   },
 
+  getUser: function(callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.url + '/users',
+      contentType: 'application/json',
+      xhrFields: {
+                  withCredentials: true
+                  }
+      //dataType: 'json'
+    }, callback);
+  },
+
   logout: function(callback) {
     this.ajax({
       method: 'POST',

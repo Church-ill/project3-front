@@ -24,13 +24,22 @@ var cb = {
     }
   },
 
+  getUserCB: function(err, data){
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(data);
+      ux.afterLogin(data);
+    }
+  },
+
   loginCB: function(err, data){
     if (err) {
       console.error("error", err);
     } else {
       console.log("successF");
       console.log(data);
-      ux.afterLogin();
+      setTimeout(api.getUser(cb.getUserCB), 5000);
     }
   },
 
