@@ -31,6 +31,7 @@ var cb = {
       console.log("successF");
       console.log(data);
       ux.afterLogin();
+      api.indexProducts(cb.allProdsCB);
     }
   },
 
