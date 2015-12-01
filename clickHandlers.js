@@ -55,6 +55,12 @@ $(document).ready(function(){
     e.preventDefault();
   });
 
+  $('#add-to-cart').on('click', function(e){
+    ux.cartPage();
+    //api.showTransaction();
+    e.preventDefault();
+  });
+
   // $('').on('click', function(e) {
   //   api.showProduct(cb.allProdsCB);
   //   e.preventDefault();

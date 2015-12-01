@@ -236,6 +236,9 @@
                             4.0 stars
                         </p>
                     </div>
+                    <div class="text-right">
+                        <a id="add-to-cart" class="btn btn-warning">Add to Cart</a>
+                    </div>
                 </div>
 
                 <div class="well">
@@ -296,6 +299,45 @@
         </div>
 
     </div>
+
+    <!--Main Search Table-->
+    <div id="shop-cart" class="col-sm-9 col-sm-offset-0 col-md-10 col-md-offset-1 main">
+     <h1>Shopping Cart</h1>
+
+      <div class="table-responsive">
+        <table class="table table-striped">
+
+          <thead>
+            <tr>
+              <th>Remove</th>
+              <th>Name</th>
+              <th>Desc</th>
+              <th>Qty</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+
+          <tbody id='prods-shop-cart'>
+            <script id="cart-index" type="text/x-handlebars-template">
+              {{#each products}}
+              <tr>
+                <td><button data-prod-id={{_id}} type="button" class="btn btn-warning">Remove</button>
+                </td>
+                <td>{{name}}</td>
+                <td>{{desc}}</td>
+                <td>{{qty}}</td>
+                <td>{{price}}</td>
+              </tr>
+              {{/each}}
+            </script>
+          </tbody>
+        </table>
+        <div class="text-right">
+            <p>Total:</p>
+            <a class="btn btn-warning">Checkout</a>
+        </div>
+      </div>
+
     <!-- /.container -->
 
     <div class="container">
