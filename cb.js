@@ -1,3 +1,5 @@
+'use strict';
+
 var cb = {
 
   //Handlebars to generate tables//
@@ -79,6 +81,15 @@ var cb = {
         total += elem.product_price;
       });
       $('#cartTotal').text("Total: " + total);
+    }
+  },
+
+  deleteTransCB: function(err, data) {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(data);
+      // need to refresh cart page
     }
   }
 

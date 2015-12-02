@@ -92,6 +92,15 @@ var api = {
       data: data
       //dataType: 'json'
     }, callback);
+  },
+
+  deleteTransaction: function(id, callback) {
+    this.ajax({
+      method: 'DELETE',
+      url: this.url +'/transactions/' + id,
+      contentType: 'application/json',
+      //dataType: 'json'
+    }, callback);
   }
 
 };
