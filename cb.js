@@ -28,7 +28,7 @@ var cb = {
     }
   },
 
-  getUserCB: ///fill this CB function in. If you get a data response, not an error, then use jquery to populate the dom with the username
+  getUserCB: function(){},///fill this CB function in. If you get a data response, not an error, then use jquery to populate the dom with the username
 
   loginCB: function(err, data){
     if (err) {
