@@ -9,8 +9,13 @@ var ux = {
     $('#shop-cart').hide(500);
   },
 
+  showTopNavBar: function() {
+    $('.top-nav-bar').css('visibility', 'visible');
+  },
+
   skipLogin: function(){
     $('#login-overlay').hide();
+    ux.showTopNavBar();
     $('#main-product-page').show(500);
     $('#single-product-page').hide();
     $('#shop-cart').hide(500);
@@ -18,6 +23,7 @@ var ux = {
 
   afterLogin: function(){
     $('#login-overlay').hide();
+    ux.showTopNavBar();
     $('#main-product-page').show(500);
     $('#single-product-page').hide();
     $('#shop-cart').hide(500);
@@ -25,6 +31,7 @@ var ux = {
 
   singleProductPage: function(){
     $('#login-overlay').hide();
+    ux.showTopNavBar();
     $('#main-product-page').hide();
     $('#single-product-page').show(500);
     $('#shop-cart').hide(500);
@@ -32,6 +39,7 @@ var ux = {
 
   cartPage: function(){
     $('#login-overlay').hide();
+    ux.showTopNavBar();
     $('#main-product-page').hide();
     $('#single-product-page').hide();
     $('#shop-cart').show(500);
