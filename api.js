@@ -1,8 +1,51 @@
 'use strict';
 
+/*
+  possibilites to handle:
+
+  front-end local, api local
+  front-end local, api remote - prod=true
+  front-end remote, api local - dev=true
+  front-end remote, api remote
+*/
+
+var getBaseApiUrl = function getBaseApiUrl(dev, prod) {
+  var baseUrl;
+  var $location = $(location);
+
+  var params = $location.attr('search')
+    .slice(1)
+    .split('&')
+    .reduce(function(hash, element) {
+      if (element) {
+        var nameValuePair = element.split('=');
+        hash[nameValuePair[0]] = nameValuePair[1];
+      }
+
+      return hash;
+    }, {});
+
+  if (params.dev === 'true' ||
+    $location.attr('hostname') === 'localhost' && params.prod !== 'true') {
+    baseUrl = dev;
+  } else {
+    baseUrl =  prod;
+  }
+
+  return baseUrl;
+};
+
+var dev = 'http://localhost:3000';
+var prod = 'https://something-at.herokuapp.com';
+
+
+var baseApiUrl = getBaseApiUrl(dev, prod);
+
+console.log(baseApiUrl);
+
 var api = {
 
-  url: 'http://localhost:3000',
+  url: baseApiUrl,
 
   ajax: function(config, cb) {
     $.ajaxSetup({
