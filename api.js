@@ -89,7 +89,16 @@ var api = {
       method: 'PATCH',
       url: this.url + '/transactions/' + id,
       contentType: 'application/json',
-      data: data
+      data: JSON.stringify(data)
+      //dataType: 'json'
+    }, callback);
+  },
+
+  deleteTransaction: function(id, callback) {
+    this.ajax({
+      method: 'DELETE',
+      url: this.url +'/transactions/' + id,
+      contentType: 'application/json',
       //dataType: 'json'
     }, callback);
   },

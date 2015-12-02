@@ -45,13 +45,13 @@ var wrap = function(root, formData) {
 //   };
 // });
 
-$(document).ready(function(){
+$(document).ready(function() {
 
   ux.login();
   cb.init();
 
   $('#nozama').on('click', function() {
-    ux.login();
+    ux.skipLogin();
   });
 
   //Login Actions//
@@ -98,7 +98,7 @@ $(document).ready(function(){
     if (id) {
       ux.singleProductPage();
       api.showProduct(id, cb.showProdsCB);
-    };
+    }
     e.preventDefault();
   });
 
@@ -120,6 +120,15 @@ $(document).ready(function(){
 
   $('#contShopButton').on('click', function () {
     ux.afterLogin();
+  });
+
+  $('#prods-shop-cart').on('click', function (e) {
+    var id = $(e.target).data('prod-id');
+    var data = { status: "abandoned" };
+    console.log("you clicked product id:" + id);
+    if (id) {
+      api.updateTransaction(id, data, cb.deleteTransCB);
+    }
   });
 
   // $('').on('click', function(e) {

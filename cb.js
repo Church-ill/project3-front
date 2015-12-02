@@ -1,3 +1,5 @@
+'use strict';
+
 var cb = {
 
   //Handlebars to generate tables//
@@ -91,5 +93,14 @@ var cb = {
       $("#allProdsPage").html(rowHTML);
     }
   },
+
+  deleteTransCB: function(err, data) {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(data);
+      // need to refresh cart page
+    }
+  }
 
 };
