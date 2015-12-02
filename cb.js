@@ -28,6 +28,8 @@ var cb = {
     }
   },
 
+  getUserCB: ///fill this CB function in. If you get a data response, not an error, then use jquery to populate the dom with the username
+
   loginCB: function(err, data){
     if (err) {
       console.error("error", err);
@@ -35,6 +37,8 @@ var cb = {
       console.log("successF");
       console.log(data);
       ux.afterLogin();
+      //trigger api call GET request to http://localhost/users
+      //pass this api a callback function, named cb.getuserCB
       api.indexProducts(cb.allProdsCB);
     }
   },
@@ -61,6 +65,7 @@ var cb = {
     if (err) {
       console.error(err);
     } else {
+      $('#prodUrl').attr('src', data[0].url);
       $('#prodName').text(data[0].name);
       $('#prodPrice').text("$" + data[0].price);
       $('#prodDesc').text(data[0].desc);

@@ -35,7 +35,7 @@ $(document).ready(function() {
   $('#loginForm').on('submit', function (e){
     var credentials = form2object(this);
     console.log("creds:", credentials);
-    api.login(credentials, cb.loginCB);
+    api.login(credentials, cb.loginCB); //this runs when login form is submitted. cb.loginCB handles data response from our backend.
     $(".form-control").val('');
     e.preventDefault();
     $('.loginMessage').show();
