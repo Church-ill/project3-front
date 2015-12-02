@@ -28,7 +28,15 @@ var cb = {
     }
   },
 
-  getUserCB: function(){},///fill this CB function in. If you get a data response, not an error, then use jquery to populate the dom with the username
+  getUserCB: function(err, data){
+    if (err) {
+      console.log(err);
+    } else {
+      $('#loginMessage').html("Hello " + data.title);
+      console.log('Hello');
+      console.log(data.title);
+    }
+  },///fill this CB function in. If you get a data response, not an error, then use jquery to populate the dom with the username
 
   loginCB: function(err, data){
     if (err) {
@@ -37,6 +45,7 @@ var cb = {
       console.log("successF");
       console.log(data);
       ux.afterLogin();
+      api.getUser(cb.getUserCB);
       //trigger api call GET request to http://localhost/users
       //pass this api a callback function, named cb.getuserCB
       api.indexProducts(cb.allProdsCB);
@@ -70,7 +79,7 @@ var cb = {
       $('#prodPrice').text("$" + data[0].price);
       $('#prodDesc').text(data[0].desc);
       $('#add-to-cart').attr('data-cart-prod-id',data[0]["_id"]);
-      prod_id = data[0]["_id"]; //Gloabal variable
+      prod_id = data[0]["_id"]; //Global variable
     }
   },
 
