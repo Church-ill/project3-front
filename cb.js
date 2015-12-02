@@ -1,5 +1,5 @@
 'use strict';
-
+var prod_id = "";
 var cb = {
 
   //Handlebars to generate tables//
@@ -65,6 +65,7 @@ var cb = {
       $('#prodPrice').text("$" + data[0].price);
       $('#prodDesc').text(data[0].desc);
       $('#add-to-cart').attr('data-cart-prod-id',data[0]["_id"]);
+      prod_id = data[0]["_id"]; //Gloabal variable
     }
   },
 

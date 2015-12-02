@@ -51,6 +51,7 @@ $(document).ready(function() {
 
   $('#nozama').on('click', function (e) {
     ux.skipLogin();
+    api.indexProducts(cb.allProdsCB);
     e.preventDefault();
   });
 
@@ -82,7 +83,7 @@ $(document).ready(function() {
     ux.cartPage();
     var data = {
       //user_id: "565b262200c6ec466aec2900",
-      product_id: $(e.target).data('cart-prod-id'),
+      product_id: prod_id,
       status: "cart",
       qty: 1
     };
@@ -96,13 +97,15 @@ $(document).ready(function() {
 
   $('#contShopButton').on('click', function (e) {
     ux.afterLogin();
+    api.indexProducts(cb.allProdsCB);
     e.preventDefault();
   });
 
+  //remove button//
   $('#prods-shop-cart').on('click', function (e) {
-    var id = $(e.target).data('prod-id');
+    var id = $(e.target).data('trans-id');
     var data = { status: "abandoned" };
-    console.log("you clicked product id:" + id);
+    console.log("you clicked transaction id:" + id);
     if (id) {
       api.updateTransaction(id, data, cb.deleteTransCB);
     }
