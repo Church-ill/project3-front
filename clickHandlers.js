@@ -127,4 +127,11 @@ $(document).ready(function(){
   //   e.preventDefault();
   // });
 
+  $('#main-search').on('submit', function (e){
+    var query = $(this).find("input").val();
+    query = query.split(' ').join('+');
+    api.mainSearch(query, cb.mainSearchCB);
+    e.preventDefault();
+  });
+
 });

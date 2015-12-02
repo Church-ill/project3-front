@@ -92,6 +92,15 @@ var api = {
       data: data
       //dataType: 'json'
     }, callback);
-  }
+  },
+
+  mainSearch: function(query, callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.url + '/products?q=' + query,
+      contentType: 'application/json'
+      //dataType: 'json'
+    }, callback);
+  },
 
 };

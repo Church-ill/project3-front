@@ -80,6 +80,16 @@ var cb = {
       });
       $('#cartTotal').text("Total: " + total);
     }
-  }
+  },
+
+  mainSearchCB: function(err, data){
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(data);
+      var rowHTML = cb.allProdsTemplate({products: data});
+      $("#allProdsPage").html(rowHTML);
+    }
+  },
 
 };
