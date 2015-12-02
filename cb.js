@@ -9,7 +9,7 @@ var cb = {
   init: function(){
     Handlebars.registerHelper('ifOnLoan', function (conditionalVariable, options){
       if (conditionalVariable === options.hash.value) {
-        return options.fn(this)
+        return options.fn(this);
       } else {
         return options.inverse(this);
       }
@@ -84,6 +84,22 @@ var cb = {
     }
   },
 
+  showTransCB: function(err, data) {
+    var total = 0;
+
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(data);
+      var rowHTML = cb.cartTemplate({transactions: data.trans});
+      $("#prods-shop-cart").html(rowHTML);
+      data.trans.forEach( function (elem) {
+        total += elem.product_price;
+      });
+      $('#cartTotal').text("Total: " + total);
+    }
+  },
+
   mainSearchCB: function(err, data){
     if (err) {
       console.log(err);
@@ -99,7 +115,7 @@ var cb = {
       console.error(err);
     } else {
       console.log(data);
-      // need to refresh cart page
+      api.showTransaction(cb.showTransCB);
     }
   }
 

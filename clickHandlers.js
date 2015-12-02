@@ -17,53 +17,22 @@ var wrap = function(root, formData) {
   return wrapper;
 };
 
-// (function($) {
-//   $.fn.flash_message = function flash_message(options) {
-
-//     options = $.extend({
-//       text: 'Done',
-//       time: 1000,
-//       how: 'before',
-//       class_name: ''
-//     }, options);
-
-//     return $(this).each(function() {
-//       if( $(this).parent().find('.flash_message').get(0) )
-//         return;
-
-//       var message = $('<span />', {
-//         'class': 'flash_message ' + options.class_name,
-//         text: options.text
-//       }).hide().fadeIn('fast');
-
-//       $(this)[options.how](message);
-
-//       message.delay(options.time).fadeOut('normal', function() {
-//         $(this).remove();
-//       })(jQuery);
-//     });
-//   };
-// });
 
 $(document).ready(function() {
 
   ux.login();
   cb.init();
 
-  $('#nozama').on('click', function() {
-    ux.skipLogin();
-  });
-
   //Login Actions//
 
-  $('#registerForm').on('submit', function(e) {
+  $('#registerForm').on('submit', function (e) {
     var credentials = form2object(this);
     api.register(credentials, cb.registerCB);
     $(".form-control").val('');
     e.preventDefault();
   });
 
-  $('#loginForm').on('submit', function(e){
+  $('#loginForm').on('submit', function (e){
     var credentials = form2object(this);
     console.log("creds:", credentials);
     api.login(credentials, cb.loginCB);
@@ -72,13 +41,18 @@ $(document).ready(function() {
     $('.loginMessage').show();
   });
 
-  $('#skipLogIn').on('click', function(e){
+  $('#skipLogIn').on('click', function (e){
     ux.skipLogin();
     api.indexProducts(cb.allProdsCB);
     e.preventDefault();
   });
 
   //NavBar//
+
+  $('#nozama').on('click', function (e) {
+    ux.skipLogin();
+    e.preventDefault();
+  });
 
   $('#logoutButton').on('click', function (e) {
     api.logout(cb.logoutCB);
@@ -87,11 +61,13 @@ $(document).ready(function() {
 
   $('#cartButton').on('click', function (e) {
     ux.cartPage();
+    api.showTransaction(cb.showTransCB);
+    e.preventDefault();
   });
 
   //Product Pages//
 
-  $('#allProdsPage').on('click', function(e){
+  $('#allProdsPage').on('click', function (e){
     var prodClicked = $(e.target);
     var id = prodClicked.data('prods-id');
     console.log("you clicked product id:" + id);
@@ -102,7 +78,7 @@ $(document).ready(function() {
     e.preventDefault();
   });
 
-  $('#add-to-cart').on('click', function(e){
+  $('#add-to-cart').on('click', function (e){
     ux.cartPage();
     var data = {
       //user_id: "565b262200c6ec466aec2900",
@@ -118,8 +94,9 @@ $(document).ready(function() {
 
   //Shopping Cart Page//
 
-  $('#contShopButton').on('click', function () {
+  $('#contShopButton').on('click', function (e) {
     ux.afterLogin();
+    e.preventDefault();
   });
 
   $('#prods-shop-cart').on('click', function (e) {
@@ -129,6 +106,7 @@ $(document).ready(function() {
     if (id) {
       api.updateTransaction(id, data, cb.deleteTransCB);
     }
+    e.preventDefault();
   });
 
   // $('').on('click', function(e) {
