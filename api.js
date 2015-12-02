@@ -2,7 +2,7 @@
 
 var api = {
 
-  url: 'http://localhost:3000',
+  url: 'https://localhost:3000',
 
   ajax: function(config, cb) {
     $.ajaxSetup({
