@@ -51,7 +51,7 @@ $(document).ready(function() {
   cb.init();
 
   $('#nozama').on('click', function() {
-    ux.login();
+    ux.skipLogin();
   });
 
   //Login Actions//
@@ -124,9 +124,10 @@ $(document).ready(function() {
 
   $('#prods-shop-cart').on('click', function (e) {
     var id = $(e.target).data('prod-id');
+    var data = { status: "abandoned" };
     console.log("you clicked product id:" + id);
     if (id) {
-      api.deleteTransaction(id, cb.deleteTransCB);
+      api.updateTransaction(id, data, cb.deleteTransCB);
     }
   });
 

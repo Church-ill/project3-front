@@ -89,7 +89,7 @@ var api = {
       method: 'PATCH',
       url: this.url + '/transactions/' + id,
       contentType: 'application/json',
-      data: data
+      data: JSON.stringify(data)
       //dataType: 'json'
     }, callback);
   },
