@@ -48,11 +48,11 @@ var api = {
   url: baseApiUrl,
 
   ajax: function(config, cb) {
-    $.ajaxSetup({
-      xhrFields: {
-        withCredentials: true
-      }
-    });
+    // $.ajaxSetup({
+    //   xhrFields: {
+    //     withCredentials: true
+    //   }
+    // });
     $.ajax(config).done(function(data, textStatus, jqxhr) {
         cb(null, data);
       }).fail(function(jqxhr, status, error) {
