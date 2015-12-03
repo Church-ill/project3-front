@@ -35,7 +35,7 @@ $(document).ready(function() {
   $('#loginForm').on('submit', function (e){
     var credentials = form2object(this);
     console.log("creds:", credentials);
-    api.login(credentials, cb.loginCB); //this runs when login form is submitted. cb.loginCB handles data response from our backend.
+    api.login(credentials, cb.loginCB);
     $(".form-control").val('');
     e.preventDefault();
     $('.loginMessage').show();
@@ -44,6 +44,7 @@ $(document).ready(function() {
   $('#skipLogIn').on('click', function (e){
     ux.skipLogin();
     api.indexProducts(cb.allProdsCB);
+    api.mostClicks(cb.mostClicksCB);
     e.preventDefault();
   });
 
@@ -52,6 +53,7 @@ $(document).ready(function() {
   $('#nozama').on('click', function (e) {
     ux.skipLogin();
     api.indexProducts(cb.allProdsCB);
+    api.mostClicks(cb.mostClicksCB);
     e.preventDefault();
   });
 
@@ -81,6 +83,7 @@ $(document).ready(function() {
     if (id) {
       ux.singleProductPage();
       api.showProduct(id, cb.showProdsCB);
+      api.pClicks(id, cb.pClicksCB);
     }
     e.preventDefault();
   });
@@ -88,13 +91,11 @@ $(document).ready(function() {
   $('#add-to-cart').on('click', function (e){
     ux.cartPage();
     var data = {
-      //user_id: "565b262200c6ec466aec2900",
       product_id: prod_id,
       status: "cart",
       qty: 1
     };
-    console.log('createTrans data before api:');
-    console.log(data);
+    console.log('createTrans data before api:', data);
     api.createTransaction(data, cb.createTransCB);
     e.preventDefault();
   });
@@ -104,6 +105,7 @@ $(document).ready(function() {
   $('.contShopButton').on('click', function (e) {
     ux.afterLogin();
     api.indexProducts(cb.allProdsCB);
+    api.mostClicks(cb.mostClicksCB);
     e.preventDefault();
   });
 
@@ -117,11 +119,6 @@ $(document).ready(function() {
     }
     e.preventDefault();
   });
-
-  // $('').on('click', function(e) {
-  //   api.showProduct(cb.allProdsCB);
-  //   e.preventDefault();
-  // });
 
   $('#main-search').on('submit', function (e){
     var query = $(this).find("input").val();

@@ -121,4 +121,22 @@ var api = {
     }, callback);
   },
 
+  pClicks: function(id, callback) {
+    this.ajax({
+      method: 'PATCH',
+      url: this.url + '/products/' + id + '?click=1',
+      contentType: 'application/json'
+      //dataType: 'json'
+    }, callback);
+  },
+
+  mostClicks: function(callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.url + '/products' + '?c=true',
+      contentType: 'application/json'
+      //dataType: 'json'
+    }, callback);
+  }
+
 };

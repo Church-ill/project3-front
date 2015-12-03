@@ -6,6 +6,7 @@ var cb = {
   allProdsTemplate: function(){},
   cartTemplate: function(){},
   histTemplate: function(){},
+  mostCLicksTemplate: function(){},
 
   init: function(){
     Handlebars.registerHelper('ifOnLoan', function (conditionalVariable, options){
@@ -19,6 +20,7 @@ var cb = {
     this.allProdsTemplate = Handlebars.compile($('#allProd-index').html());
     this.cartTemplate = Handlebars.compile($('#cart-index').html());
     this.histTemplate = Handlebars.compile($('#hist-index').html());
+    this.mostClicksTemplate = Handlebars.compile($('#mostClicksSection').html());
   },
   // ^ end Handlebars ^ //
 
@@ -38,19 +40,17 @@ var cb = {
       console.log('Hello');
       console.log(data.title);
     }
-  },///fill this CB function in. If you get a data response, not an error, then use jquery to populate the dom with the username
+  },
 
   loginCB: function(err, data){
     if (err) {
       console.error("error", err);
     } else {
-      console.log("successF");
-      console.log(data);
+      console.log("login response:", data);
       ux.afterLogin();
       api.getUser(cb.getUserCB);
-      //trigger api call GET request to http://localhost/users
-      //pass this api a callback function, named cb.getuserCB
       api.indexProducts(cb.allProdsCB);
+      api.mostClicks(cb.mostClicksCB);
     }
   },
 
@@ -82,6 +82,24 @@ var cb = {
       $('#prodDesc').text(data[0].desc);
       $('#add-to-cart').attr('data-cart-prod-id',data[0]["_id"]);
       prod_id = data[0]["_id"]; //Global variable
+    }
+  },
+
+  pClicksCB: function(err, data) {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log('pClicks:', data);
+    }
+  },
+
+  mostClicksCB: function(err, data) {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log('mostClicks:', data);
+      var rowHTML = cb.mostClicksTemplate({products: data});
+      $("#mostPopular").html(rowHTML);
     }
   },
 

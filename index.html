@@ -222,6 +222,38 @@
 
     </div>
 
+    <!--Most Popular Section - All Prods Page-->
+
+    <div id="popularSection1" class="container">
+
+        <div class="row">
+
+            <hr style="height: 1px;">
+            <h1>Most Popular Products:</h1>
+                <div id="mostPopular" class="row">
+                    <script id="mostClicksSection" type="text/x-handlebars-template">
+                        {{#each products}}
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+                            <div class="thumbnail">
+                                <img data-prods-id={{_id}} src={{url}} alt="">
+                                <div class="caption">
+                                    <h4 class="pull-right">${{price}}</h4>
+                                    <h4><p>{{name}}</p>
+                                    </h4>
+                                    <p>{{desc}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </script>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
     <!--Single Product Page-->
     <div class="container">
     <div id="single-product-page" class="row">
@@ -419,7 +451,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2015</p>
+                    <p>Copyright &copy; Nozama 2015</p>
                 </div>
             </div>
         </footer>

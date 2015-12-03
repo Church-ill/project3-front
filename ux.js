@@ -8,6 +8,7 @@ var ux = {
     $('#single-product-page').hide();
     $('#shop-cart').hide(500);
     $('#trans-hist').hide(500);
+    $('#popularSection1').hide();
   },
 
   showTopNavBar: function() {
@@ -21,6 +22,7 @@ var ux = {
     $('#single-product-page').hide();
     $('#shop-cart').hide(500);
     $('#trans-hist').hide(500);
+    $('#popularSection1').show();
   },
 
   afterLogin: function(){
@@ -30,6 +32,7 @@ var ux = {
     $('#single-product-page').hide();
     $('#shop-cart').hide(500);
     $('#trans-hist').hide(500);
+    $('#popularSection1').show();
   },
 
   singleProductPage: function(){
@@ -39,6 +42,7 @@ var ux = {
     $('#single-product-page').show(500);
     $('#shop-cart').hide(500);
     $('#trans-hist').hide(500);
+    $('#popularSection1').hide();
   },
 
   cartPage: function(){
@@ -57,6 +61,7 @@ var ux = {
     $('#single-product-page').hide();
     $('#shop-cart').hide(500);
     $('#trans-hist').show(500);
-  },
+    $('#popularSection1').hide();
+  }
 
 };
