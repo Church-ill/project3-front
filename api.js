@@ -38,6 +38,15 @@ var api = {
     }, callback);
   },
 
+  getUser: function(callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.url + '/users',
+      contentType: 'application/json'
+      //dataType: 'json'
+    }, callback);
+  },
+
   logout: function(callback) {
     this.ajax({
       method: 'POST',
@@ -65,10 +74,10 @@ var api = {
     }, callback);
   },
 
-  showTransaction: function(callback) {
+  showTransaction: function(query, callback) {
     this.ajax({
       method: 'GET',
-      url: this.url + '/transactions',
+      url: this.url + '/transactions?status=' + query,
       contentType: 'application/json'
       //dataType: 'json'
     }, callback);
@@ -111,5 +120,23 @@ var api = {
       //dataType: 'json'
     }, callback);
   },
+
+  pClicks: function(id, callback) {
+    this.ajax({
+      method: 'PATCH',
+      url: this.url + '/products/' + id + '?click=1',
+      contentType: 'application/json'
+      //dataType: 'json'
+    }, callback);
+  },
+
+  mostClicks: function(callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.url + '/products' + '?c=true',
+      contentType: 'application/json'
+      //dataType: 'json'
+    }, callback);
+  }
 
 };

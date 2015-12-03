@@ -5,6 +5,8 @@ var cb = {
   //Handlebars to generate tables//
   allProdsTemplate: function(){},
   cartTemplate: function(){},
+  histTemplate: function(){},
+  mostCLicksTemplate: function(){},
 
   init: function(){
     Handlebars.registerHelper('ifOnLoan', function (conditionalVariable, options){
@@ -17,6 +19,8 @@ var cb = {
 
     this.allProdsTemplate = Handlebars.compile($('#allProd-index').html());
     this.cartTemplate = Handlebars.compile($('#cart-index').html());
+    this.histTemplate = Handlebars.compile($('#hist-index').html());
+    this.mostClicksTemplate = Handlebars.compile($('#mostClicksSection').html());
   },
   // ^ end Handlebars ^ //
 
@@ -28,14 +32,25 @@ var cb = {
     }
   },
 
+  getUserCB: function(err, data){
+    if (err) {
+      console.log(err);
+    } else {
+      $('#loginMessage').html("Hello " + data.title);
+      console.log('Hello');
+      console.log(data.title);
+    }
+  },
+
   loginCB: function(err, data){
     if (err) {
       console.error("error", err);
     } else {
-      console.log("successF");
-      console.log(data);
+      console.log("login response:", data);
       ux.afterLogin();
+      api.getUser(cb.getUserCB);
       api.indexProducts(cb.allProdsCB);
+      api.mostClicks(cb.mostClicksCB);
     }
   },
 
@@ -61,11 +76,30 @@ var cb = {
     if (err) {
       console.error(err);
     } else {
+      $('#prodUrl').attr('src', data[0].url);
       $('#prodName').text(data[0].name);
       $('#prodPrice').text("$" + data[0].price);
       $('#prodDesc').text(data[0].desc);
       $('#add-to-cart').attr('data-cart-prod-id',data[0]["_id"]);
-      prod_id = data[0]["_id"]; //Gloabal variable
+      prod_id = data[0]["_id"]; //Global variable
+    }
+  },
+
+  pClicksCB: function(err, data) {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log('pClicks:', data);
+    }
+  },
+
+  mostClicksCB: function(err, data) {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log('mostClicks:', data);
+      var rowHTML = cb.mostClicksTemplate({products: data});
+      $("#mostPopular").html(rowHTML);
     }
   },
 
@@ -81,7 +115,7 @@ var cb = {
       data.trans.forEach( function (elem) {
         total += elem.product_price;
       });
-      $('#cartTotal').text("Total: " + total);
+      $('#cartTotal').text("Total: $" + total.toFixed(2));
     }
   },
 
@@ -97,7 +131,23 @@ var cb = {
       data.trans.forEach( function (elem) {
         total += elem.product_price;
       });
-      $('#cartTotal').text("Total: " + total);
+      $('#cartTotal').text("Total: $" + total.toFixed(2));
+    }
+  },
+
+  showHistCB: function(err, data) {
+    var total = 0;
+
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(data);
+      var rowHTML = cb.histTemplate({transactions: data.trans});
+      $("#trans-hist-table").html(rowHTML);
+      data.trans.forEach( function (elem) {
+        total += elem.product_price;
+      });
+      $('#histTotal').text("Total: $" + total.toFixed(2));
     }
   },
 
@@ -116,7 +166,7 @@ var cb = {
       console.error(err);
     } else {
       console.log(data);
-      api.showTransaction(cb.showTransCB);
+      api.showTransaction('cart', cb.showTransCB);
     }
   }
 
