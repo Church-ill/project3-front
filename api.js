@@ -74,10 +74,10 @@ var api = {
     }, callback);
   },
 
-  showTransaction: function(callback) {
+  showTransaction: function(query, callback) {
     this.ajax({
       method: 'GET',
-      url: this.url + '/transactions',
+      url: this.url + '/transactions?status=' + query,
       contentType: 'application/json'
       //dataType: 'json'
     }, callback);

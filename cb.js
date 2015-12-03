@@ -5,6 +5,7 @@ var cb = {
   //Handlebars to generate tables//
   allProdsTemplate: function(){},
   cartTemplate: function(){},
+  histTemplate: function(){},
 
   init: function(){
     Handlebars.registerHelper('ifOnLoan', function (conditionalVariable, options){
@@ -17,6 +18,7 @@ var cb = {
 
     this.allProdsTemplate = Handlebars.compile($('#allProd-index').html());
     this.cartTemplate = Handlebars.compile($('#cart-index').html());
+    this.histTemplate = Handlebars.compile($('#hist-index').html());
   },
   // ^ end Handlebars ^ //
 
@@ -95,7 +97,7 @@ var cb = {
       data.trans.forEach( function (elem) {
         total += elem.product_price;
       });
-      $('#cartTotal').text("Total: " + total);
+      $('#cartTotal').text("Total: $" + total.toFixed(2));
     }
   },
 
@@ -111,7 +113,23 @@ var cb = {
       data.trans.forEach( function (elem) {
         total += elem.product_price;
       });
-      $('#cartTotal').text("Total: " + total);
+      $('#cartTotal').text("Total: $" + total.toFixed(2));
+    }
+  },
+
+  showHistCB: function(err, data) {
+    var total = 0;
+
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(data);
+      var rowHTML = cb.histTemplate({transactions: data.trans});
+      $("#trans-hist-table").html(rowHTML);
+      data.trans.forEach( function (elem) {
+        total += elem.product_price;
+      });
+      $('#histTotal').text("Total: $" + total.toFixed(2));
     }
   },
 

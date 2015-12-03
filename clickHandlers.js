@@ -62,7 +62,13 @@ $(document).ready(function() {
 
   $('#cartButton').on('click', function (e) {
     ux.cartPage();
-    api.showTransaction(cb.showTransCB);
+    api.showTransaction('cart', cb.showTransCB);
+    e.preventDefault();
+  });
+
+  $('#histButton').on('click', function (e) {
+    ux.histPage();
+    api.showTransaction('purchased', cb.showHistCB);
     e.preventDefault();
   });
 
@@ -95,7 +101,7 @@ $(document).ready(function() {
 
   //Shopping Cart Page//
 
-  $('#contShopButton').on('click', function (e) {
+  $('.contShopButton').on('click', function (e) {
     ux.afterLogin();
     api.indexProducts(cb.allProdsCB);
     e.preventDefault();

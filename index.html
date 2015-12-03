@@ -136,6 +136,9 @@
                         <a id="cartButton" href="#cart">Shopping Cart</a>
                     </li>
                     <li>
+                        <a id="histButton" href="#history">Transaction History</a>
+                    </li>
+                    <li>
                         <a id="logoutButton" href="#logout">Logout</a>
                     </li>
                     <li>
@@ -344,7 +347,7 @@
                 <td>{{product_name}}</td>
                 <td>{{product_desc}}</td>
                 <td>{{qty}}</td>
-                <td>{{product_price}}</td>
+                <td>${{product_price}}</td>
               </tr>
               {{/each}}
             </script>
@@ -352,7 +355,7 @@
         </table>
         <div class="text-right">
             <p id="cartTotal">Total:</p>
-            <span id="contShopButton" class="btn btn-success">Continue Shopping</span>
+            <span class="btn btn-success contShopButton">Continue Shopping</span>
             <form action="/charge" method="POST">
               <script
                 src="https://checkout.stripe.com/checkout.js" class="stripe-button"
@@ -365,7 +368,47 @@
             </form>
         </div>
       </div>
+    </div>
 
+    <!-- Transaction History Page -->
+
+    <div id="trans-hist" class="col-sm-9 col-sm-offset-0 col-md-10 col-md-offset-1 main">
+     <h1>Transaction History</h1>
+
+      <div class="table-responsive">
+        <table class="table table-striped">
+
+          <thead>
+            <tr>
+              <th>Purchase Date</th>
+              <th>Name</th>
+              <th>Desc</th>
+              <th>Qty</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+
+          <tbody id='trans-hist-table'>
+            <script id="hist-index" type="text/x-handlebars-template">
+              {{#each transactions}}
+              <tr>
+                <td>{{updatedAt}}</td>
+                <td>{{product_name}}</td>
+                <td>{{product_desc}}</td>
+                <td>{{qty}}</td>
+                <td>${{product_price}}</td>
+              </tr>
+              {{/each}}
+            </script>
+          </tbody>
+        </table>
+        <div class="text-right">
+            <p id="histTotal">Total:</p>
+            <span class="btn btn-success contShopButton">Continue Shopping</span>
+        </div>
+      </div>
+
+    </div>
     <!-- /.container -->
 
     <div class="container">
