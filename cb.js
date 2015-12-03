@@ -148,7 +148,7 @@ var cb = {
       console.error(err);
     } else {
       console.log(data);
-      api.showTransaction(cb.showTransCB);
+      api.showTransaction('cart', cb.showTransCB);
     }
   }
 
