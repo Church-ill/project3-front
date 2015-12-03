@@ -168,6 +168,14 @@ var cb = {
       console.log(data);
       api.showTransaction('cart', cb.showTransCB);
     }
+  },
+
+  stripeCB: function(err, data) {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(data);
+    }
   }
 
 };

@@ -127,4 +127,38 @@ $(document).ready(function() {
     e.preventDefault();
   });
 
+  //Stripe//
+
+  var handler = StripeCheckout.configure({
+    key: 'pk_test_ijxlnniMWqq8lhA45ysnRzC1',
+    image: '/img/documentation/checkout/marketplace.png',
+    locale: 'auto',
+    token: function(token) {
+      console.log(token.id);
+      var cData = {
+        token: token.id,
+        amount: Number($('#cartTotal').html().split(': $')[1])
+      };
+      console.log(cData);
+      api.stripe(cData, cb.stripeCB);
+      // Use the token to create the charge with a server-side script.
+      // You can access the token ID with `token.id`
+    }
+  });
+
+  $('#customButton').on('click', function(e) {
+    // Open Checkout with further options
+    handler.open({
+      name: 'NOZAMA.COMMA',
+      description: 'Photos',
+      amount: Number($('#cartTotal').html().split(': $')[1])*100
+    });
+    e.preventDefault();
+  });
+
+  // Close Checkout on page navigation
+  $(window).on('popstate', function() {
+    handler.close();
+  });
+
 });

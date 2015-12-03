@@ -137,6 +137,16 @@ var api = {
       contentType: 'application/json'
       //dataType: 'json'
     }, callback);
+  },
+
+  stripe: function (data, callback) {
+    this.ajax({
+      method: 'POST',
+      url: this.url + '/charge',
+      contentType: 'application/json',
+      data: JSON.stringify(data)
+      //dataType: 'json'
+    }, callback);
   }
 
 };

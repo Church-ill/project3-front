@@ -18,6 +18,7 @@
     <link href="assets/css/shop-homepage.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/handlebars-v3.0.3.js"></script>
+    <script src="https://checkout.stripe.com/checkout.js"></script>
     <script src="api.js"></script>
     <script src="ux.js"></script>
     <script src="cb.js"></script>
@@ -390,16 +391,22 @@
         <div class="text-right">
             <p id="cartTotal">Total:</p>
             <span class="btn btn-success contShopButton">Continue Shopping</span>
-            <form action="http://localhost:3000/charge" method="POST">
-              <script
-                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                data-key="pk_test_ijxlnniMWqq8lhA45ysnRzC1"
-                data-name="Nozama"
-                data-description="2 widgets"
-                data-amount="2000"
-                data-locale="auto">
-              </script>
-            </form>
+
+
+
+            <button id="customButton">Purchase</button>
+
+                <!-- <form action="http://localhost:3000/charge" method="POST">
+                  <script
+                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="pk_test_ijxlnniMWqq8lhA45ysnRzC1"
+                    data-name="Nozama"
+                    data-description="2 widgets"
+                    data-amount="2000"
+                    data-locale="auto">
+                  </script>
+                </form> -->
+
         </div>
       </div>
     </div>
