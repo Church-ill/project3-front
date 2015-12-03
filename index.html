@@ -152,7 +152,7 @@
     </nav>
 
     <!-- Page Content -->
-    <div id="main-product-page" class="container-fluid">
+    <div id="main-product-page" class="container">
         <div class="row">
 
             <div class="col-sm-1">
@@ -165,7 +165,7 @@
                 </div> -->
             </div>
 
-            <div class="col-md-10">
+            <div class="col-md-9">
 
                 <div class="row carousel-holder">
 
@@ -202,8 +202,8 @@
                     <script id="allProd-index" type="text/x-handlebars-template">
                         {{#each products}}
                         <div class="col-sm-4 col-lg-4 col-md-4">
-                            <div class="thumbnail img-rounded">
-                                <img data-prods-id={{_id}} src={{url}} alt="">
+                            <div class="thumbnail">
+                                <img class="img-rounded" data-prods-id={{_id}} src={{url}} alt="">
                                 <div class="caption">
                                     <h4 class="pull-right">${{price}}</h4>
                                     <h4><p>{{name}}</p>

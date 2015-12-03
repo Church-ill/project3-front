@@ -69,6 +69,7 @@ var cb = {
       console.log(data);
       var rowHTML = cb.allProdsTemplate({products: data});
       $('body').addClass("hide-bg");
+      $('body').addClass("show-bg");
       $("#allProdsPage").html(rowHTML);
     }
   },

@@ -11,12 +11,17 @@
 body {
     padding-top: 70px;
     background-image: url("../images/fern.JPG");
+    background-color: red hidden;
     background-size: 100%;
     width: 100%;
 }
 
 body.hide-bg {
     background-image: none;
+}
+
+body.show-bg {
+    background-color: black;
 }
 
 /*.modal-content {
