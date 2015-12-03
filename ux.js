@@ -52,6 +52,7 @@ var ux = {
     $('#single-product-page').hide();
     $('#shop-cart').show(500);
     $('#trans-hist').hide(500);
+    $('#popularSection1').hide();
   },
 
   histPage: function(){
