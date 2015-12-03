@@ -9,7 +9,25 @@
 }
 
 body {
-    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    padding-top: 70px;
+    background-image: url("../images/fern.JPG");
+    background-color: red hidden;
+    background-size: 100%;
+    width: 100%;
+}
+
+body.hide-bg {
+    background-image: none;
+}
+
+body.show-bg {
+    background-color: black;
+}
+
+/*.modal-content {
+    background-image: url("../images/fern.JPG");
+    background-size: 100%;
+    width: 100%;*/
 }
 
 .slide-image {
@@ -36,6 +54,7 @@ body {
 
 .thumbnail img {
     width: 100%;
+    text-align: justify;
 }
 
 .ratings {
@@ -45,7 +64,7 @@ body {
 }
 
 .thumbnail {
-    padding: 0;
+    padding: 5px;
 }
 
 .thumbnail .caption-full {
@@ -62,3 +81,10 @@ footer {
     position: relative;
     margin-top: 15px
 }
+
+.row {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+

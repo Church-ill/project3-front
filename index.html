@@ -154,16 +154,16 @@
 
     <!-- Page Content -->
     <div id="main-product-page" class="container">
-
         <div class="row">
 
-            <div class="col-md-3">
-                <p class="lead">Shop Name</p>
+            <div class="col-sm-1">
+                <p></p>
+                <!-- <p class="lead">Shop Name</p>
                 <div class="list-group">
                     <a href="#" class="list-group-item">Category 1</a>
                     <a href="#" class="list-group-item">Category 2</a>
                     <a href="#" class="list-group-item">Category 3</a>
-                </div>
+                </div> -->
             </div>
 
             <div class="col-md-9">
@@ -199,14 +199,14 @@
 
                 </div>
 
-                <div id="allProdsPage" class="row">
+                <div id="allProdsPage">
                     <script id="allProd-index" type="text/x-handlebars-template">
                         {{#each products}}
-                        <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="clearfix col-sm-4 col-lg-4 col-md-4">
                             <div class="thumbnail">
-                                <img data-prods-id={{_id}} src={{url}} alt="">
+                                <img class="img-rounded" data-prods-id={{_id}} src={{url}} alt="">
                                 <div class="caption">
-                                    <h4 class="pull-right">${{price}}</h4>
+                                    <h4 class=>${{price}}</h4>
                                     <h4><p>{{name}}</p>
                                     </h4>
                                     <p>{{desc}}</p>
