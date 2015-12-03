@@ -21,7 +21,7 @@ body.hide-bg {
 }
 
 body.show-bg {
-    background-color: black;
+    background-color: LightSlateGrey;
 }
 
 /*.modal-content {
