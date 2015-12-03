@@ -54,6 +54,7 @@ body.show-bg {
 
 .thumbnail img {
     width: 100%;
+    text-align: justify;
 }
 
 .ratings {
