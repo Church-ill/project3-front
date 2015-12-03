@@ -10,9 +10,13 @@
 
 body {
     padding-top: 70px;
-    /*background-image: url("../images/fern.JPG");
+    background-image: url("../images/fern.JPG");
     background-size: 100%;
-    width: 100%;*/
+    width: 100%;
+}
+
+body.hide-bg {
+    background-image: none;
 }
 
 /*.modal-content {
