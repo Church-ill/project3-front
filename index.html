@@ -115,25 +115,22 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <!-- <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>-->
+
+                <!--SEARCH BOX-->
                     <li>
 
-                        <form id="main-search" class="form-inline">
-                            <div class="form-group">
-                              <div class="input-group-lg" id="adv-search">
-                                <input type="text" class="form-control" placeholder="Search by Name" />
-                                <button type="submit" class="btn btn-primary">Search</button>
-                              </div>
-                            </div>
-                        </form>
+                      <form id="main-search" class="form-inline">
+                        <div  style="padding:10px">
+                          <div class="input-group col-md-12">
+                            <input type="text" class=" form-control search-query form-control" placeholder="Search" />
+                            <span class="input-group-btn">
+                              <button class="btn btn-danger" type="submit">
+                                <span class=" glyphicon glyphicon-search"></span>
+                              </button>
+                            </span>
+                          </div>
+                        </div>
+                      </form>
 
                     </li>
                     <li>
@@ -276,13 +273,13 @@
     <div class="container">
     <div id="single-product-page" class="row">
 
-            <div class="col-md-3">
-                <p class="lead">Nozama</p>
+            <div class="col-md-1">
+                <!-- <p class="lead">Nozama</p>
                 <div class="list-group">
                     <a href="#" class="list-group-item active">Category 1</a>
                     <a href="#" class="list-group-item">Category 2</a>
                     <a href="#" class="list-group-item">Category 3</a>
-                </div>
+                </div> -->
             </div>
 
             <div class="col-md-9">
@@ -408,20 +405,7 @@
             <p id="cartTotal">Total:</p>
             <span class="btn btn-success contShopButton">Continue Shopping</span>
 
-
-
             <button id="customButton">Purchase</button>
-
-                <!-- <form action="http://localhost:3000/charge" method="POST">
-                  <script
-                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                    data-key="pk_test_ijxlnniMWqq8lhA45ysnRzC1"
-                    data-name="Nozama"
-                    data-description="2 widgets"
-                    data-amount="2000"
-                    data-locale="auto">
-                  </script>
-                </form> -->
 
         </div>
       </div>
