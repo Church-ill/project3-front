@@ -37,9 +37,9 @@ $(document).ready(function() {
     var credentials = form2object(this);
     console.log("creds:", credentials);
     api.login(credentials, cb.loginCB);
+    $("#loginFormMessage").html("Logging in...");
     $(".form-control").val('');
     e.preventDefault();
-    $('.loginMessage').show();
   });
 
   $('#skipLogIn').on('click', function (e){

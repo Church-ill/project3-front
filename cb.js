@@ -46,7 +46,7 @@ var cb = {
   loginCB: function(err, data){
     if (err) {
       console.error("error", err);
-      $("#LoginMessage").html("Error occured, please try again.");
+      $("#loginFormMessage").html("Error occured, please try again.");
     } else {
       console.log("login response:", data);
       ux.afterLogin();
