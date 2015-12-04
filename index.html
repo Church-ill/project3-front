@@ -16,7 +16,9 @@
 
     <!-- Custom CSS -->
     <link href="assets/css/shop-homepage.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Corben' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="assets/js/handlebars-v3.0.3.js"></script>
     <script src="https://checkout.stripe.com/checkout.js"></script>
     <script src="api.js"></script>
@@ -219,7 +221,7 @@
                             <div class="thumbnail">
                                 <img class="img-rounded" data-prods-id={{_id}} src={{url}} alt="">
                                 <div class="caption">
-                                    <h4 class=>${{price}}</h4>
+                                    <h5 class=>${{price}}</h5>
                                     <h4><p>{{name}}</p>
                                     </h4>
                                     <p>{{desc}}</p>
@@ -292,7 +294,7 @@
                         </h4>
                         <p id="prodDesc">Product Description</p>
                     </div>
-                    <div class="ratings">
+                   <!--  <div class="ratings">
                         <p class="pull-right">3 reviews</p>
                         <p>
                             <span class="glyphicon glyphicon-star"></span>
@@ -302,13 +304,13 @@
                             <span class="glyphicon glyphicon-star-empty"></span>
                             4.0 stars
                         </p>
-                    </div>
+                    </div> -->
                     <div class="text-right">
                         <a id="add-to-cart" data-cart-prod-id="" class="btn btn-warning">Add to Cart</a>
                     </div>
                 </div>
 
-                <div class="well">
+                <!-- <div class="well">
 
                     <div class="text-right">
                         <a class="btn btn-success">Leave a Review</a>
@@ -358,7 +360,7 @@
                             <p>I've seen some better than this, but not at this price. I definitely recommend this item.</p>
                         </div>
                     </div>
-
+ -->
                 </div>
 
             </div>
