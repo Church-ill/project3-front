@@ -29,6 +29,7 @@ $(document).ready(function() {
     var credentials = form2object(this);
     api.register(credentials, cb.registerCB);
     $(".form-control").val('');
+    $("#RegisterMessage").html("Registering, hold on...");
     e.preventDefault();
   });
 
@@ -57,6 +58,13 @@ $(document).ready(function() {
     e.preventDefault();
   });
 
+  $('#main-search').on('submit', function (e){
+    var query = $(this).find("input").val();
+    query = query.split(' ').join('+');
+    api.mainSearch(query, cb.mainSearchCB);
+    e.preventDefault();
+  });
+
   $('#logoutButton').on('click', function (e) {
     api.logout(cb.logoutCB);
     e.preventDefault();
@@ -77,6 +85,18 @@ $(document).ready(function() {
   //Product Pages//
 
   $('#allProdsPage').on('click', function (e){
+    var prodClicked = $(e.target);
+    var id = prodClicked.data('prods-id');
+    console.log("you clicked product id:" + id);
+    if (id) {
+      ux.singleProductPage();
+      api.showProduct(id, cb.showProdsCB);
+      api.pClicks(id, cb.pClicksCB);
+    }
+    e.preventDefault();
+  });
+
+  $('#mostPopular').on('click', function (e){
     var prodClicked = $(e.target);
     var id = prodClicked.data('prods-id');
     console.log("you clicked product id:" + id);
@@ -120,12 +140,6 @@ $(document).ready(function() {
     e.preventDefault();
   });
 
-  $('#main-search').on('submit', function (e){
-    var query = $(this).find("input").val();
-    query = query.split(' ').join('+');
-    api.mainSearch(query, cb.mainSearchCB);
-    e.preventDefault();
-  });
 
   //Stripe//
 
@@ -160,5 +174,6 @@ $(document).ready(function() {
   $(window).on('popstate', function() {
     handler.close();
   });
+//^Stripe^//
 
 });

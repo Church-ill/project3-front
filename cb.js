@@ -29,6 +29,7 @@ var cb = {
       console.log(err);
     } else {
       console.log(data);
+      $("#RegisterMessage").html("Registration successful, please log in.");
     }
   },
 
@@ -45,6 +46,7 @@ var cb = {
   loginCB: function(err, data){
     if (err) {
       console.error("error", err);
+      $("#LoginMessage").html("Error occured, please try again.");
     } else {
       console.log("login response:", data);
       ux.afterLogin();
