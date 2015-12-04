@@ -104,6 +104,16 @@ var api = {
     }, callback);
   },
 
+  updateManyTrans: function(data, callback) {
+    this.ajax({
+      method: 'PATCH',
+      url: this.url + '/transactions',
+      contentType: 'application/json',
+      data: JSON.stringify(data)
+      //dataType: 'json'
+    }, callback);
+  },
+
   deleteTransaction: function(id, callback) {
     this.ajax({
       method: 'DELETE',

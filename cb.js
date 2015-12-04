@@ -1,5 +1,6 @@
 'use strict';
 var prod_id = "";
+var shop_cart_ids = [];
 var cb = {
 
   //Handlebars to generate tables//
@@ -120,6 +121,12 @@ var cb = {
         total += elem.product_price;
       });
       $('#cartTotal').text("Total: $" + total.toFixed(2));
+
+      shop_cart_ids = [];
+      data.trans.forEach( function (elem) {
+        shop_cart_ids.push(elem._id);
+      });
+
     }
   },
 
@@ -136,6 +143,11 @@ var cb = {
         total += elem.product_price;
       });
       $('#cartTotal').text("Total: $" + total.toFixed(2));
+
+      shop_cart_ids = [];
+      data.trans.forEach( function (elem) {
+        shop_cart_ids.push(elem._id);
+      });
     }
   },
 
@@ -174,15 +186,29 @@ var cb = {
     }
   },
 
+  purchasedTransCB: function(err, data) {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log("successfully updated status to purchased:");
+      console.log(data);
+    }
+  },
+
   stripeCB: function(err, data) {
     if (err) {
       console.error(err);
-      $('#prods-shop-cart').html('Chare was not successful, please try again.');
+      $('#prods-shop-cart').html('Charge was not successful, please try again.');
       $('#cartTotal').html('');
     } else {
       console.log(data);
       $('#prods-shop-cart').html('Purchase Successful. Thank you for shopping with us!');
       $('#cartTotal').html('');
+      var data = {
+        id: shop_cart_ids,
+        status: "purchased"
+      };
+      api.updateManyTrans(data, cb.purchasedTransCB);
     }
   }
 
