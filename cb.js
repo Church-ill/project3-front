@@ -177,8 +177,12 @@ var cb = {
   stripeCB: function(err, data) {
     if (err) {
       console.error(err);
+      $('#prods-shop-cart').html('Chare was not successful, please try again.');
+      $('#cartTotal').html('');
     } else {
       console.log(data);
+      $('#prods-shop-cart').html('Purchase Successful. Thank you for shopping with us!');
+      $('#cartTotal').html('');
     }
   }
 
