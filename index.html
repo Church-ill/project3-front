@@ -241,15 +241,16 @@
     <div id="popularSection1" class="container">
 
         <div class="row">
+          <div class="col-md-9">
 
             <hr style="height: 1px;">
             <h1>Most Popular Products:</h1>
                 <div id="mostPopular" class="row">
                     <script id="mostClicksSection" type="text/x-handlebars-template">
                         {{#each products}}
-                        <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="clearfix col-sm-4 col-lg-4 col-md-4">
                             <div class="thumbnail">
-                                <img data-prods-id={{_id}} src={{url}} alt="">
+                                <img class="img-rounded" data-prods-id={{_id}} src={{url}} alt="">
                                 <div class="caption">
                                     <h4 class="pull-right">${{price}}</h4>
                                     <h4><p>{{name}}</p>
@@ -263,7 +264,7 @@
                 </div>
 
             </div>
-
+          </div>
         </div>
 
     </div>

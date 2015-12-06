@@ -55,6 +55,7 @@ body.show-bg {
 
 .thumbnail img {
     width: 100%;
+    height: 155px;
     text-align: justify;
 }
 
